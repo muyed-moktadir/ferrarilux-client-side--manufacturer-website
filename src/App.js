@@ -29,7 +29,9 @@ function App() {
           <RequireAuth>
             <Dashboard></Dashboard>
           </RequireAuth>
-        }></Route>
+        }>
+          
+        </Route>
 
 
         <Route path="blog" element={<Blog />} />      
