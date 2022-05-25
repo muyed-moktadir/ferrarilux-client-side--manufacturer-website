@@ -41,7 +41,7 @@ const SignUp = () => {
     /*after get token then ignored it (75.2)*/ 
     if (user || gUser) {
       console.log(user ||gUser)
-      navigate("/login");
+    //   navigate("/login");
     }
     
     
@@ -146,7 +146,7 @@ const SignUp = () => {
   
             <p><small>Already have account ?<Link className="text-primary" to="/login">Please Login</Link></small></p>      
             <div className="divider">OR</div>
-            <button onClick={() => signInWithGoogle()} className="btn btn-primary">
+            <button onClick={() => signInWithGoogle()} className="btn btn-success">
               continue with Google
             </button>
           </div>

@@ -31,7 +31,7 @@ const Login = () => {
       console.log(user ||gUser);
       navigate(from, { replace: true });
       }
-      },[user,gUser,from,location])
+      },[user,gUser,from,location, navigate])
   
   
     // TODO: token er upor nirvor kore sign in korbo(75.3)
@@ -67,8 +67,6 @@ const Login = () => {
         <div className="card-body">
           <h2 className="text-center text-2xl font-bold">Login</h2>
          
-         
-          {/* login or er majhe form hbe */}
           <form onSubmit={handleSubmit(onSubmit)}>
 
               {/*TODO: from daisy */}
@@ -119,23 +117,14 @@ const Login = () => {
                   })}
               />
               <label className="label">
-                  {/* error mesage for password */}
                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}  
 
                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}      
               </label>
             </div>
-           
-           
-            {/* error message for login */}
             {signInError}
-
-            {/* submit */}
             <input className="btn w-full max-w-xs text-white" type="submit" value="login" />
           </form>
-        
-        {/* login and or er majhe form hbe(hook theke) */}
-
           <p><small>New To Doctors Portal <Link className="text-primary" to="/signup">create new account</Link></small></p>      
           <div className="divider">OR</div>
           <button onClick={() => signInWithGoogle()} className="btn btn-info">
