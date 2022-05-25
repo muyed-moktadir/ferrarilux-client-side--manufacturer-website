@@ -34,8 +34,39 @@ const Purchase = () => {
       event.preventDefault();
       const phone =event.target.phone.value;
       const address =event.target.address.value;
-      const order =event.target.orderQuantity.value;
+      const orderQuantity =event.target.orderQuantity.value;
       
+      const order ={
+          orderId:part?._id,
+          order:part?.name,
+          userName:user?.displayName,
+        userEmail: user?.email,
+        payment:'false',
+        phone,address,orderQuantity,
+
+      }
+      fetch("http://localhost:5000/orders", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(order)
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+
+
+        /*(74.3)*/
+        if(data.insertId){ 
+          /*dynamic vabe bole dite pari ei date a tmr appointment*/ 
+          console.log(data.insertId);
+        }
+        else{
+          console.log(data.insertId);
+        }
+
+      });
 
   }
 
@@ -44,7 +75,6 @@ const Purchase = () => {
     navigate(`/purchasePage`);
   };
   return (
-   <div className="">
         <div className="card lg:max-w-lg bg-base-100 shadow-xl ">
       <figure className="px-10 pt-10">
         <img className="w-50 h-50 rounded-xl" src={img} alt="" />
@@ -108,12 +138,11 @@ const Purchase = () => {
               type="submit"
               value="order"
               className="btn btn-success w-full max-w-xs"
-              onClick={singlePartPurchaseHandle}
+            //   onClick={singlePartPurchaseHandle}
             />
           </form>
       {/* <button onClick={()=>singlePartPurchaseHandle(_id)} >gdjkg</button> */}
     </div>
-   </div>
   );
 };
 
