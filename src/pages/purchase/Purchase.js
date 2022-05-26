@@ -73,7 +73,8 @@ const Purchase = () => {
   }
 
   return (
-        <div className="card lg:max-w-lg bg-base-100 shadow-xl ">
+     <div className="flex justify-center items-center my-8">
+            <div className="card lg:max-w-lg bg-base-100 shadow-xl ">
       <figure className="px-10 pt-10">
         <img className="w-50 h-50 rounded-xl" src={img} alt="" />
       </figure>
@@ -139,6 +140,7 @@ const Purchase = () => {
             />
           </form>
     </div>
+     </div>
   );
 };
 
