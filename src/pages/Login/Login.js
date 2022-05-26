@@ -26,22 +26,13 @@ const Login = () => {
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
   
-    useEffect(()=>{
-      //   je page silo (appointment) oi page a niye jabe
-      if (user || gUser) {
-      console.log(user ||gUser);
-      navigate(from, { replace: true });
+    
+    // TODO:using the token
+    useEffect( () =>{
+      if (token) {
+          navigate(from, { replace: true });
       }
-      },[user,gUser,from,location, navigate])
-  
-  
-    // TODO: token er upor nirvor kore sign in korbo(75.3)
-  
-  //   useEffect( () =>{
-  //     if (token) {
-  //         navigate(from, { replace: true });
-  //     }
-  // }, [token, from, navigate])
+  }, [token, from, navigate])
   
   
   
