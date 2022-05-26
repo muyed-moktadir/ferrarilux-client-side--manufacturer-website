@@ -12,9 +12,9 @@ const Allparts = () => {
       .then((data) => setParts(data));
   }, []);
     return (
-        <div className=' my-4'>
+        <div className='mt-0'>
             <div className='text-center '>
-            <h2 className='text-xl font-bold uppercase text-primary'>Ferrari Parts</h2>
+            <h2 className='text-5xl font-bold uppercase text-primary'>Ferrari Parts</h2>
             </div>
             <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12'>
                 {

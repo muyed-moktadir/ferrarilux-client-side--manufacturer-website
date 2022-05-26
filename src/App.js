@@ -19,6 +19,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Users from './pages/Dashboard/Users';
 import RequireAdmin from './pages/Login/RequireAdmin';
 import Addaproduct from './pages/Dashboard/Addaproduct';
+import Footer from './Shared/Footer';
 
 function App() {
   return (
@@ -56,6 +57,7 @@ function App() {
         <Route path='*' element={<Notfound></Notfound>}></Route>
 
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
     </div>
   );
