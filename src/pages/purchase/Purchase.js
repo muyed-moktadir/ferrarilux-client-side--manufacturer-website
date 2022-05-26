@@ -14,7 +14,7 @@ const Purchase = () => {
 
   // TODO:fetch all parts by id
   useEffect(() => {
-    const url = `http://localhost:5000/part/${id}`;
+    const url = `https://boiling-island-20591.herokuapp.com/part/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setpart(data));
@@ -49,7 +49,7 @@ const Purchase = () => {
         phone,address,orderQuantity,
 
       }
-      fetch("http://localhost:5000/orders", {
+      fetch("https://boiling-island-20591.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json"

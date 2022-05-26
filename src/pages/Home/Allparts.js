@@ -7,7 +7,7 @@ const Allparts = () => {
 
   // TODO:show all parts
   useEffect(() => {
-    fetch("http://localhost:5000/part")
+    fetch("https://boiling-island-20591.herokuapp.com/part")
       .then((res) => res.json())
       .then((data) => setParts(data));
   }, []);
