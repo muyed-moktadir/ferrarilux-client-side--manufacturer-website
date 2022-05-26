@@ -1,45 +1,47 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Myorder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth);
     console.log(user);
-  //   const navigate = useNavigate();
+    const navigate = useNavigate();
   
   
-  
-  
-    //   TODO: user er booking load
+    //   TODO: load user order
     useEffect(() => {
       if (user) {
-        fetch(`http://localhost:5000/orders?userEmail=${user.email}`
-      //   {
-      //     method: "GET",
-      //     headers: {
-      //       /*access token ke backend a pathabo token fetch er sathe method add kore pathabo (75.4)*/
-      //       authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      //     },
-      //   }
+        fetch(`http://localhost:5000/orders?userEmail=${user.email}`,
+        {
+          method: "GET",
+          headers: {
+            'authorization': `Bearer ${localStorage.getItem("accessToken")}`
+          }
+        }
         )
-          .then((res) => res.json())
-          .then((data) => setOrders(data));
+        //   .then((res) => {
+        //       console.log(res);
+        //      return res.json()
+        //     })
+        //   .then((data) => {setOrders(data)});
   
   
           /*jwt token theke ashbe 401 403 (75.6)*/
-          // .then((res) => {
-          //   console.log("res", res);
-          //   if (res.status === 401 || res.status === 403) {
-          //     signOut(auth);
-          //     localStorage.removeItem("accessToken");
-          //     navigate("/");
-          //   }
-          //   return res.json();
-          // })
-          // .then((data) => {
-          //   setorders(data);
-          // });
+          .then((res) => {
+            console.log("res", res);
+            if (res.status === 401 || res.status === 403) {
+              signOut(auth);
+              localStorage.removeItem("accessToken");
+              navigate("/");
+            }
+            return res.json();
+          })
+          .then((data) => {
+            setOrders(data);
+          });
       }
     }, [user]);
     return (
