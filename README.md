@@ -2,7 +2,7 @@
 
 [Client link](https://github.com/programming-hero-web-course1/manufacturer-website-client-side-muyed-moktadir).
 [server link](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-muyed-moktadir).
-[live link](https://bikevio-newproject.firebaseapp.com/).
+[live link](https://ferrarilux.web.app/).
 
 
 ## ` What i have done in my project`
@@ -12,7 +12,7 @@
 *in this project there is a book now btton and when log in booked will be done  be done when user logged in.
 *JWT token  for email/password based authentication and add loading spinner 
 *there is dashboad both user and admin .some part are for user and some are for admin
-* in blogs showing the following 3 question's answer
+* in blogs showing the following 5 question's answer
 * my portfolio page also remain
 * A not found page (404) show in the project
 * admin can create admin 
@@ -24,6 +24,6 @@
 
 
 
-### `summary of My BikeVio project`
+### `summary of My ferrarilux project`
 
-In my project i used `react router`, `vanilla css `,`react concept`,`firebase-authentication`,`aos`, `mongodb`
+In my project i used `react router`, `daisyui `,`react concept`,`firebase-authentication`, `mongodb`
