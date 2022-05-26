@@ -19,6 +19,7 @@ const Dashboard = () => {
             <li><Link to="/dashboard" >My Profile</Link></li>
             <li><Link to="/dashboard/myreview">My reviews</Link></li>
             <li><Link to="/dashboard/myorder">My order</Link></li>
+            <li><Link to="/dashboard/menageorder">Menage Orders</Link></li>
            {/* <li><Link to="/dashboard/users">All Users</Link></li> */}
 
           {/* admin hole link ta dekhabe na hole dekhabe na 75.8*/}

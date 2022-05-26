@@ -34,6 +34,7 @@ const Purchase = () => {
       const phone =event.target.phone.value;
       const address =event.target.address.value;
       const orderQuantity =event.target.orderQuantity.value;
+      event.target.reset();
       
       const order ={
           orderId:part?._id,
@@ -56,14 +57,19 @@ const Purchase = () => {
         console.log(data);
 
 
-        /*(74.3)*/
-        if(data.insertId){ 
-          /*dynamic vabe bole dite pari ei date a tmr appointment*/ 
-          console.log(data.insertId);
-        }
-        else{
-          console.log(data.insertId);
-        }
+        
+            console.log(data);
+    
+    
+            /*(74.3)*/
+            if(data.success){ 
+              /*dynamic vabe bole dite pari ei date a tmr appointment*/ 
+              toast(`appointment is set, ${formattedDate} at ${slot}`);
+            }
+            else{
+              toast(`you already have an appointment on, ${data.booking?.date} at ${data.booking?.slot}`);
+            }
+         
 
       });
 
