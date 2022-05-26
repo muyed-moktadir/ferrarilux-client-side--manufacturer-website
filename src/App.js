@@ -14,6 +14,8 @@ import Myprofile from './pages/Dashboard/Myprofile';
 import Myreview from './pages/Dashboard/Myreview';
 import Myorder from './pages/Dashboard/Myorder';
 import MenageOrders from './pages/Dashboard/MenageOrders';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -47,6 +49,7 @@ function App() {
         <Route path='*' element={<Notfound></Notfound>}></Route>
 
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

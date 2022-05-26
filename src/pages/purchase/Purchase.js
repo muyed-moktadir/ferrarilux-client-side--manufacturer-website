@@ -2,6 +2,7 @@ import { setSelectionRange } from "@testing-library/user-event/dist/utils";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Purchase = () => {
@@ -23,9 +24,11 @@ const Purchase = () => {
   const handleQuantityChange=event=>{
       if(parseInt(event.target.value)>=parseInt(part?.minorder) && parseInt(event.target.value)<=parseInt(part?.quantity)){
           setOn(false)
+         
       }
       else{
           setOn(true)
+          toast(`minimum order ${part.minorder}`)
       }
   }
 
@@ -35,6 +38,7 @@ const Purchase = () => {
       const address =event.target.address.value;
       const orderQuantity =event.target.orderQuantity.value;
       event.target.reset();
+      toast('order successfully')
       
       const order ={
           orderId:part?._id,
@@ -56,20 +60,13 @@ const Purchase = () => {
       .then((data) => {
         console.log(data);
 
-
-        
-            console.log(data);
-    
-    
-            /*(74.3)*/
-            if(data.success){ 
-              /*dynamic vabe bole dite pari ei date a tmr appointment*/ 
-              toast(`appointment is set, ${formattedDate} at ${slot}`);
-            }
-            else{
-              toast(`you already have an appointment on, ${data.booking?.date} at ${data.booking?.slot}`);
-            }
+        if(data.insertId){ 
+          console.log(data.insertId);
          
+        }
+        else{
+          console.log(data.insertId);
+        }
 
       });
 

@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import {useSignInWithEmailAndPassword, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Loading from '../../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 
 const Login = () => {
@@ -18,7 +19,7 @@ const Login = () => {
       error,
     ] = useSignInWithEmailAndPassword(auth);
   
-    // const [token] =useToken(user||gUser); /*token create er por eta use kore navigate korbo (75.3)*/
+    const [token] =useToken(user||gUser);
   
     let signInError;
     const location = useLocation();
