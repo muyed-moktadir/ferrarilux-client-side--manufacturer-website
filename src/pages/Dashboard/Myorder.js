@@ -22,14 +22,6 @@ const Myorder = () => {
           }
         }
         )
-        //   .then((res) => {
-        //       console.log(res);
-        //      return res.json()
-        //     })
-        //   .then((data) => {setOrders(data)});
-  
-  
-          /*jwt token theke ashbe 401 403 (75.6)*/
           .then((res) => {
             console.log("res", res);
             if (res.status === 401 || res.status === 403) {
