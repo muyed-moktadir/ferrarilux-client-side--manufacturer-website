@@ -9,8 +9,7 @@ const Purchase = () => {
   const { id } = useParams();
   const [part, setpart] = useState([]);
   const [on,setOn] =useState(false)
-  const { _id, name, quantity, img, description, price, minorder } = part;
-  const navigate = useNavigate();
+  const { name, quantity, img, description, price, minorder } = part;
 
   // TODO:fetch all parts by id
   useEffect(() => {
@@ -22,7 +21,7 @@ const Purchase = () => {
 
 
   const handleQuantityChange=event=>{
-      if(parseInt(event.target.value)>=parseInt(part?.minorder)){
+      if(parseInt(event.target.value)>=parseInt(part?.minorder) && parseInt(event.target.value)<=parseInt(part?.quantity)){
           setOn(false)
       }
       else{
@@ -70,10 +69,6 @@ const Purchase = () => {
 
   }
 
-  const singlePartPurchaseHandle = (id) => {
-    console.log("id", id);
-    navigate(`/purchasePage`);
-  };
   return (
         <div className="card lg:max-w-lg bg-base-100 shadow-xl ">
       <figure className="px-10 pt-10">
@@ -138,10 +133,8 @@ const Purchase = () => {
               type="submit"
               value="order"
               className="btn btn-success w-full max-w-xs"
-            //   onClick={singlePartPurchaseHandle}
             />
           </form>
-      {/* <button onClick={()=>singlePartPurchaseHandle(_id)} >gdjkg</button> */}
     </div>
   );
 };

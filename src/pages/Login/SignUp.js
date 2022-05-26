@@ -141,8 +141,6 @@ const SignUp = () => {
               {/* submit */}
               <input className="btn w-full max-w-xs text-white" type="submit" value="Sign Up" />
             </form>
-          
-          {/* login and or er majhe form hbe(hook theke) */}
   
             <p><small>Already have account ?<Link className="text-primary" to="/login">Please Login</Link></small></p>      
             <div className="divider">OR</div>

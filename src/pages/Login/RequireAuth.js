@@ -9,7 +9,6 @@ const RequireAuth = ({children}) => {
     const [user, loading] = useAuthState(auth);
     const location = useLocation();
 
-    // firebase a user check er jonno
     if(loading){
         return <Loading></Loading>
     }
